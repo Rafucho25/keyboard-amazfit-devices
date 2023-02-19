@@ -9,8 +9,7 @@ A simple keyboard for amazfit band 7(GTS 4, GTS 4 mini and GTS 3 in the future).
 ## How it works
 
 * The constructor accept one parameter: the coordinate "y" of the keyboard, this is for example if you want to display something before the keyboard. 
-* You can use the file example.js(put in the page folder) to see the keyboard in action 
-![keyboard](https://user-images.githubusercontent.com/16562078/219973874-2c4d146b-7df3-4e7d-a49f-6454c72f3b48.png)
+* You can use the file example.js(put in the page folder) to see the keyboard in action.
 
 ## How to use(example for band 7)
 
