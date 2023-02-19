@@ -10,6 +10,7 @@ A simple keyboard for amazfit band 7(GTS 4, GTS 4 mini and GTS 3 in the future).
 
 * The constructor accept one parameter: the coordinate "y" of the keyboard, this is for example if you want to display something before the keyboard. 
 * You can use the file example.js(put in the page folder) to see the keyboard in action 
+![keyboard](https://user-images.githubusercontent.com/16562078/219973874-2c4d146b-7df3-4e7d-a49f-6454c72f3b48.png)
 
 ## How to use(example for band 7)
 
@@ -25,6 +26,10 @@ const keyboard = new keyboard_band7()
  ```javascript
 keyboard.text_value
 ```
+## Screenshot and videos
+<h3><img align="center" src="https://user-images.githubusercontent.com/16562078/219973882-704b5727-1cbc-400c-b4f6-dcd7a2bb0a05.png"> Default</h3>
+
+https://user-images.githubusercontent.com/16562078/219974414-38b557a4-6451-4e47-a76c-4f4a8877ab73.mp4
 
 ## Future updates
 * Add numeric keyboard.
