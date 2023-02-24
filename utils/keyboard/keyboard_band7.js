@@ -5,6 +5,7 @@ export class keyboard_band7
         this.start_y = _y
         this.isKeyPressed = false
         this.isKeyCapPressed = false
+        this.isKeyNumericPressed = false
         this.vibrate = hmSensor.createSensor(hmSensor.id.VIBRATE)
          
         hmUI.createWidget(hmUI.widget.STROKE_RECT, {
@@ -25,7 +26,132 @@ export class keyboard_band7
             color: 0xffffff
         })
 
-        const KEY_RST = hmUI.createWidget(hmUI.widget.BUTTON, {
+        //Create groups
+        const GROUP_LETTERS = hmUI.createWidget(hmUI.widget.GROUP)
+        const GROUP_ALPHABET = hmUI.createWidget(hmUI.widget.GROUP)
+        const GROUP_NUMERIC = hmUI.createWidget(hmUI.widget.GROUP)
+        
+        const KEY_ABC = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
+            x: 2,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: "abc",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                if (this.isKeyPressed) {
+                    this.isKeyPressed = false;
+                    hideAllLettersButtons()
+                } else {
+                    this.isKeyPressed = true;
+                    showABCButtons()
+                }
+            }
+        })
+        
+        const KEY_DEF = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
+            x: 50,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: "def",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                if (this.isKeyPressed) {
+                    this.isKeyPressed = false;
+                    hideAllLettersButtons()
+                } else {
+                    this.isKeyPressed = true;
+                    showDEFButtons()
+                }
+            }
+        })
+         
+        const KEY_GHI = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
+            x: 98,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: 'ghi',
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                if (this.isKeyPressed) {
+                    this.isKeyPressed = false;
+                    hideAllLettersButtons()
+                } else {
+                    this.isKeyPressed = true;
+                    showGHIButtons()
+                }
+            }
+        })
+         
+        const KEY_JKL = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
+            x: 2,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "jkl",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                if (this.isKeyPressed) {
+                    this.isKeyPressed = false;
+                    hideAllLettersButtons()
+                } else {
+                    this.isKeyPressed = true;
+                    showJKLButtons()
+                }
+            }
+        })
+        
+        const KEY_MN = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
+            x: 50,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "mnñ",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                if (this.isKeyPressed) {
+                    this.isKeyPressed = false;
+                    hideAllLettersButtons()
+                } else {
+                    this.isKeyPressed = true;
+                    showMNButtons()
+                }
+            }
+        })
+        
+        const KEY_OPQ = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
+            x: 98,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "opq",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                if (this.isKeyPressed) {
+                    this.isKeyPressed = false;
+                    hideAllLettersButtons()
+                } else {
+                    this.isKeyPressed = true;
+                    showOPQButtons()
+                }
+            }
+        })
+
+        const KEY_RST = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
             x: 2,
             y: this.start_y + 60,
             w: 45,
@@ -45,7 +171,7 @@ export class keyboard_band7
             }
         })
         
-        const KEY_UVW = hmUI.createWidget(hmUI.widget.BUTTON, {
+        const KEY_UVW = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
             x: 50,
             y: this.start_y + 60,
             w: 45,
@@ -65,7 +191,7 @@ export class keyboard_band7
             }
         })
         
-        const KEY_XYZ = hmUI.createWidget(hmUI.widget.BUTTON, {
+        const KEY_XYZ = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
             x: 98,
             y: this.start_y + 60,
             w: 45,
@@ -85,7 +211,7 @@ export class keyboard_band7
             }
         })
         
-        const KEY_CAP = hmUI.createWidget(hmUI.widget.BUTTON, {
+        const KEY_CAP = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
             x: 146,
             y: this.start_y + 60,
             w: 45,
@@ -124,68 +250,8 @@ export class keyboard_band7
                 }
             }
         })
-         
-        const KEY_JKL = hmUI.createWidget(hmUI.widget.BUTTON, {
-            x: 2,
-            y: this.start_y + 108,
-            w: 45,
-            h: 45,
-            text: "jkl",
-            text_size: 20,
-            normal_color: 0x333333,
-            press_color: 0x0986D4,
-            click_func: () => {
-                if (this.isKeyPressed) {
-                    this.isKeyPressed = false;
-                    hideAllLettersButtons()
-                } else {
-                    this.isKeyPressed = true;
-                    showJKLButtons()
-                }
-            }
-        })
         
-        const KEY_MN = hmUI.createWidget(hmUI.widget.BUTTON, {
-            x: 50,
-            y: this.start_y + 108,
-            w: 45,
-            h: 45,
-            text: "mnñ",
-            text_size: 20,
-            normal_color: 0x333333,
-            press_color: 0x0986D4,
-            click_func: () => {
-                if (this.isKeyPressed) {
-                    this.isKeyPressed = false;
-                    hideAllLettersButtons()
-                } else {
-                    this.isKeyPressed = true;
-                    showMNButtons()
-                }
-            }
-        })
-        
-        const KEY_OPQ = hmUI.createWidget(hmUI.widget.BUTTON, {
-            x: 98,
-            y: this.start_y + 108,
-            w: 45,
-            h: 45,
-            text: "opq",
-            text_size: 20,
-            normal_color: 0x333333,
-            press_color: 0x0986D4,
-            click_func: () => {
-                if (this.isKeyPressed) {
-                    this.isKeyPressed = false;
-                    hideAllLettersButtons()
-                } else {
-                    this.isKeyPressed = true;
-                    showOPQButtons()
-                }
-            }
-        })
-        
-        const KEY_NUMBER = hmUI.createWidget(hmUI.widget.BUTTON, {
+        const KEY_NUMBER = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
             x: 146,
             y: this.start_y + 108,
             w: 45,
@@ -195,73 +261,25 @@ export class keyboard_band7
             normal_color: 0x333333,
             press_color: 0x0986D4,
             click_func: () => {
-                hmUI.showToast({
-                    text: 'Coming soon'
-                })
+                showNumericsButon(this.start_y);
             }
         })
         
-        const KEY_ABC = hmUI.createWidget(hmUI.widget.BUTTON, {
-            x: 2,
-            y: this.start_y + 156,
+        const KEY_ALPHABETIC = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 146,
+            y: this.start_y + 108,
             w: 45,
             h: 45,
-            text: "abc",
+            text: "ABC",
             text_size: 20,
             normal_color: 0x333333,
             press_color: 0x0986D4,
             click_func: () => {
-                if (this.isKeyPressed) {
-                    this.isKeyPressed = false;
-                    hideAllLettersButtons()
-                } else {
-                    this.isKeyPressed = true;
-                    showABCButtons()
-                }
+                hideNumericsButon(this.start_y);
             }
         })
         
-        const KEY_DEF = hmUI.createWidget(hmUI.widget.BUTTON, {
-            x: 50,
-            y: this.start_y + 156,
-            w: 45,
-            h: 45,
-            text: "def",
-            text_size: 20,
-            normal_color: 0x333333,
-            press_color: 0x0986D4,
-            click_func: () => {
-                if (this.isKeyPressed) {
-                    this.isKeyPressed = false;
-                    hideAllLettersButtons()
-                } else {
-                    this.isKeyPressed = true;
-                    showDEFButtons()
-                }
-            }
-        })
-         
-        const KEY_GHI = hmUI.createWidget(hmUI.widget.BUTTON, {
-            x: 98,
-            y: this.start_y + 156,
-            w: 45,
-            h: 45,
-            text: 'ghi',
-            text_size: 20,
-            normal_color: 0x333333,
-            press_color: 0x0986D4,
-            click_func: () => {
-                if (this.isKeyPressed) {
-                    this.isKeyPressed = false;
-                    hideAllLettersButtons()
-                } else {
-                    this.isKeyPressed = true;
-                    showGHIButtons()
-                }
-            }
-        })
-        
-        const KEY_SYMBOL = hmUI.createWidget(hmUI.widget.BUTTON, {
+        const KEY_SYMBOL = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
             x: 146,
             y: this.start_y + 156,
             w: 45,
@@ -304,8 +322,6 @@ export class keyboard_band7
                 this.removeCharacter(text_input);
             }
         })
-
-        const GROUP_ALPHABET = hmUI.createWidget(hmUI.widget.GROUP)
         
         const KEY_A = GROUP_ALPHABET.createWidget(hmUI.widget.BUTTON, {
             x: 50,
@@ -739,8 +755,151 @@ export class keyboard_band7
             }
         })
 
-        //hide all the groups that contains the individual letter 
+        //Numeric keys 
+        
+        const KEY_ONE = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 2,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: "1",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('1', text_input);
+            }
+        })
+        
+        const KEY_TWO = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 50,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: "2",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('2', text_input);
+            }
+        })
+         
+        const KEY_THREE = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 98,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: '3',
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('3', text_input);
+            }
+        })
+         
+        const KEY_FOUR = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 2,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "4",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('4', text_input);
+            }
+        })
+        
+        const KEY_FIVE = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 50,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "5",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('5', text_input);
+            }
+        })
+        
+        const KEY_SIX = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 98,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "6",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('6', text_input);
+            }
+        })
+
+        const KEY_SEVEN = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 2,
+            y: this.start_y + 60,
+            w: 45,
+            h: 45,
+            text: "7",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('7', text_input);
+            }
+        })
+        
+        const KEY_EIGHT = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 50,
+            y: this.start_y + 60,
+            w: 45,
+            h: 45,
+            text: "8",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('8', text_input);
+            }
+        })
+        
+        const KEY_NINE = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 98,
+            y: this.start_y + 60,
+            w: 45,
+            h: 45,
+            text: "9",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('9', text_input);
+            }
+        })
+        
+        const KEY_ZERO = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+            x: 146,
+            y: this.start_y + 60,
+            w: 45,
+            h: 45,
+            text: "0",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('0', text_input);
+            }
+        })
+
+        //hide all the groups that contains the individual letter and numeric keys
         hideAllLettersButtons()
+        GROUP_NUMERIC.setProperty(hmUI.prop.VISIBLE, false)
 
         function hideABCButtons(){
             KEY_A.setProperty(hmUI.prop.VISIBLE, false)
@@ -1521,6 +1680,17 @@ export class keyboard_band7
                 text_size: 20,
             })
         }
+
+        function showNumericsButon(){
+            GROUP_LETTERS.setProperty(hmUI.prop.VISIBLE, false)
+            GROUP_NUMERIC.setProperty(hmUI.prop.VISIBLE, true)
+
+        }
+
+        function hideNumericsButon(){
+            GROUP_NUMERIC.setProperty(hmUI.prop.VISIBLE, false)
+            GROUP_LETTERS.setProperty(hmUI.prop.VISIBLE, true)
+        }
     }
 
     //events
@@ -1533,11 +1703,9 @@ export class keyboard_band7
         //if CAP key is enabled the letter will be in capital otherwise lower case
         this.isKeyCapPressed ? this.text_value += _value.toUpperCase() : this.text_value += _value;
 
-        if(this.validation()){
-            text_input.setProperty(hmUI.prop.MORE, {
-                text: this.text_value,
-            })
-        }
+        text_input.setProperty(hmUI.prop.MORE, {
+            text: this.text_value,
+        })
     }
 
     removeCharacter(text_input){
@@ -1551,18 +1719,5 @@ export class keyboard_band7
         text_input.setProperty(hmUI.prop.MORE, {
             text: this.text_value,
         })
-    }
-
-    validation(){
-        //point
-        /*var count = [...this.text_value].filter(x => x === '.').length;
-
-        if(count == 2){
-            this.text_value = this.text_value.slice(0, -1);
-            return false
-        }else{
-            return true
-        }*/
-        return true
     }
 }
