@@ -30,8 +30,12 @@ keyboard.text_value
 
 https://user-images.githubusercontent.com/16562078/219974414-38b557a4-6451-4e47-a76c-4f4a8877ab73.mp4
 
+## Features
+* Alphabetic keyboard.
+* Numeric keyboard.
+* Support uppercase and lowercase letters.
+
 ## Future updates
-* Add numeric keyboard.
 * Add symbols keyboard.
 * Support for GTS 4, GTS 4 mini and GTS 3.
 * Improve the quality of the code.
