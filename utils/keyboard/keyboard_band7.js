@@ -30,6 +30,7 @@ export class keyboard_band7
         const GROUP_LETTERS = hmUI.createWidget(hmUI.widget.GROUP)
         const GROUP_ALPHABET = hmUI.createWidget(hmUI.widget.GROUP)
         const GROUP_NUMERIC = hmUI.createWidget(hmUI.widget.GROUP)
+        const GROUP_SYMBOLS = hmUI.createWidget(hmUI.widget.GROUP)
         
         const KEY_ABC = GROUP_LETTERS.createWidget(hmUI.widget.BUTTON, {
             x: 2,
@@ -265,7 +266,7 @@ export class keyboard_band7
             }
         })
         
-        const KEY_ALPHABETIC = GROUP_NUMERIC.createWidget(hmUI.widget.BUTTON, {
+        const KEY_ALPHABETIC = hmUI.createWidget(hmUI.widget.BUTTON, {
             x: 146,
             y: this.start_y + 108,
             w: 45,
@@ -276,6 +277,7 @@ export class keyboard_band7
             press_color: 0x0986D4,
             click_func: () => {
                 hideNumericsButon(this.start_y);
+                hideSymbolsButon(this.start_y);
             }
         })
         
@@ -289,9 +291,7 @@ export class keyboard_band7
             normal_color: 0x333333,
             press_color: 0x0986D4,
             click_func: () => {
-                hmUI.showToast({
-                    text: 'Coming soon'
-                })
+                showSymbolsButon(this.start_y);
             }
         })
         
@@ -897,9 +897,153 @@ export class keyboard_band7
             }
         })
 
+        //Symbols keys 
+        
+        const KEY_EXCLAMATION = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 2,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: "!",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('!', text_input);
+            }
+        })
+        
+        const KEY_AT = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 50,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: "@",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('@', text_input);
+            }
+        })
+         
+        const KEY_NUMBER_SIGN = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 98,
+            y: this.start_y + 156,
+            w: 45,
+            h: 45,
+            text: '#',
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('#', text_input);
+            }
+        })
+         
+        const KEY_MONEY = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 2,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "$",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('$', text_input);
+            }
+        })
+        
+        const KEY_PERCENT = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 50,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "%",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('%', text_input);
+            }
+        })
+        
+        const KEY_QUESTION = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 98,
+            y: this.start_y + 108,
+            w: 45,
+            h: 45,
+            text: "?",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('?', text_input);
+            }
+        })
+
+        const KEY_AMPERSAND = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 2,
+            y: this.start_y + 60,
+            w: 45,
+            h: 45,
+            text: "&",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('&', text_input);
+            }
+        })
+        
+        const KEY_OPEN_PARENTHESIS = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 50,
+            y: this.start_y + 60,
+            w: 45,
+            h: 45,
+            text: "(",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('(', text_input);
+            }
+        })
+        
+        const KEY_CLOSE_PARENTHESIS = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 98,
+            y: this.start_y + 60,
+            w: 45,
+            h: 45,
+            text: ")",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter(')', text_input);
+            }
+        })
+        
+        const KEY_SLASH = GROUP_SYMBOLS.createWidget(hmUI.widget.BUTTON, {
+            x: 146,
+            y: this.start_y + 60,
+            w: 45,
+            h: 45,
+            text: "/",
+            text_size: 20,
+            normal_color: 0x333333,
+            press_color: 0x0986D4,
+            click_func: () => {
+                this.addCharacter('/', text_input);
+            }
+        })
+
         //hide all the groups that contains the individual letter and numeric keys
         hideAllLettersButtons()
         GROUP_NUMERIC.setProperty(hmUI.prop.VISIBLE, false)
+        KEY_ALPHABETIC.setProperty(hmUI.prop.VISIBLE, false)
+        GROUP_SYMBOLS.setProperty(hmUI.prop.VISIBLE, false)
 
         function hideABCButtons(){
             KEY_A.setProperty(hmUI.prop.VISIBLE, false)
@@ -1684,12 +1828,27 @@ export class keyboard_band7
         function showNumericsButon(){
             GROUP_LETTERS.setProperty(hmUI.prop.VISIBLE, false)
             GROUP_NUMERIC.setProperty(hmUI.prop.VISIBLE, true)
+            KEY_ALPHABETIC.setProperty(hmUI.prop.VISIBLE, true)
 
         }
 
         function hideNumericsButon(){
             GROUP_NUMERIC.setProperty(hmUI.prop.VISIBLE, false)
             GROUP_LETTERS.setProperty(hmUI.prop.VISIBLE, true)
+            KEY_ALPHABETIC.setProperty(hmUI.prop.VISIBLE, false)
+        }
+
+        function showSymbolsButon(){
+            GROUP_LETTERS.setProperty(hmUI.prop.VISIBLE, false)
+            GROUP_SYMBOLS.setProperty(hmUI.prop.VISIBLE, true)
+            KEY_ALPHABETIC.setProperty(hmUI.prop.VISIBLE, true)
+
+        }
+
+        function hideSymbolsButon(){
+            GROUP_SYMBOLS.setProperty(hmUI.prop.VISIBLE, false)
+            GROUP_LETTERS.setProperty(hmUI.prop.VISIBLE, true)
+            KEY_ALPHABETIC.setProperty(hmUI.prop.VISIBLE, false)
         }
     }
 
