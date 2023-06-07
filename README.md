@@ -1,10 +1,6 @@
 # keyboard for amazfit devices
 
-<<<<<<< HEAD
 A simple keyboard for amazfit band 7, GTS 4, GTS 4 mini and GTS 3.
-=======
-A keyboard for amazfit band 7(GTS 4, GTS 4 mini and GTS 3 in the future).
->>>>>>> b141ee2f8ff7bd35b015cfe694489bed2a5fd9e6
 
 ## How to install
 
@@ -37,17 +33,11 @@ https://user-images.githubusercontent.com/16562078/219974414-38b557a4-6451-4e47-
 ## Features
 * Alphabetic keyboard.
 * Numeric keyboard.
-* Symbols keyboard.
 * Support uppercase and lowercase letters.
 * Symbols keyboard.
 
 ## Future updates
-<<<<<<< HEAD
 * Add more keyboard layouts.
-=======
-* Add more symbols.
-* Support for GTS 4, GTS 4 mini and GTS 3.
->>>>>>> b141ee2f8ff7bd35b015cfe694489bed2a5fd9e6
 * Improve the quality of the code.
 
 Let me know if you have any ideas or recommendations.
