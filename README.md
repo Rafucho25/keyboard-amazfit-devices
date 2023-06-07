@@ -1,6 +1,6 @@
 # keyboard for amazfit devices
 
-A simple keyboard for amazfit band 7(GTS 4, GTS 4 mini and GTS 3 in the future).
+A simple keyboard for amazfit band 7, GTS 4, GTS 4 mini and GTS 3.
 
 ## How to install
 
@@ -15,7 +15,7 @@ A simple keyboard for amazfit band 7(GTS 4, GTS 4 mini and GTS 3 in the future).
 
 * Add this line to the page you want to display the keyboard:
  ```javascript
-import { keyboard_band7 } from '../../utils/keyboard/keyboard_band7' //add or remove ../ depends of your folder location 
+import { keyboard_band7 } from '../../utils/keyboard/keyboard_band7' //add or remove ../ depends of your folder location and replace "keyboard_band7" with the amazfit device you want.
 ```
 * Create an instance:
  ```javascript
@@ -34,10 +34,10 @@ https://user-images.githubusercontent.com/16562078/219974414-38b557a4-6451-4e47-
 * Alphabetic keyboard.
 * Numeric keyboard.
 * Support uppercase and lowercase letters.
+* Symbols keyboard.
 
 ## Future updates
-* Add symbols keyboard.
-* Support for GTS 4, GTS 4 mini and GTS 3.
+* Add more keyboard layouts.
 * Improve the quality of the code.
 
 Let me know if you have any ideas or recommendations.
